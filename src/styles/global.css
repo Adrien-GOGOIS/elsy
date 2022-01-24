@@ -1,0 +1,15 @@
+/* .box {
+    background-color: #cccccc;
+} */
+
+/* .box {
+    background-color: #aaaaaa;
+} */
+
+.box {
+    height : 190px;
+    padding : 8px;
+    text-align : center;
+    background-color: #aaaaaa;
+}
+

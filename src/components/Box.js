@@ -1,19 +1,20 @@
 import React from 'react';
 
-const css = {
-    fontSize: '100',
-    color: 'black'
-}
 
-class Steps extends React.Component {
+class Box extends React.Component {
     render() {
+        const css = {
+    fontSize: '100',
+    color: this.props.color
+};
         return ( <div className='box col-sm-3 col-6'>
         <span className="material-icons" style={css}>
-directions_walk
+{this.props.icon}
 </span>
+<p>{this.props.value} {this.props.unit}</p>
         </div>
         );   
     }
 }
 
-export default Steps;
+export default Box;
