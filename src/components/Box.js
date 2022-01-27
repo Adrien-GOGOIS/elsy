@@ -1,6 +1,18 @@
 import React from "react";
 
 class Box extends React.Component {
+  displayRange() {
+    if (this.props.icon !== "local_drink") {
+      <input
+        type={"range"}
+        min={this.props.min}
+        max={this.props.max}
+        value={this.props.value}
+        onInput={this.props.input}
+      />;
+    }
+  }
+
   render() {
     const css = {
       fontSize: "100px",
