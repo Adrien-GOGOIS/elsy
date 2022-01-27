@@ -1,8 +1,10 @@
 import React from "react";
+// COMPONENTS
 import Box from "./components/Box.js";
+// CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import styles from "./styles/global.css";
+import "./styles/global.css";
 
 const tempMin = -20;
 const tempMax = 40;
@@ -12,6 +14,15 @@ const stepMin = 0;
 const stepMax = 50000;
 
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      water: 0,
+      heart: 120,
+      temperature: -10,
+      steps: 3000,
+    };
+  }
   render() {
     return (
       <div className="container-fluid">
@@ -24,10 +35,6 @@ class App extends React.Component {
           <Box icon="favorite" color="red" value={120} unit="bpm" />
           {/* Temperature */}
           <Box icon="wb_sunny" color="yellow" value={-10} unit="°C" />
-
-          <p>Heart : {heartMin}</p>
-          <p>Temperature : {tempMin}</p>
-          <p>Steps : {stepMin}</p>
         </div>
       </div>
     );
