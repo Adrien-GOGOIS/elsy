@@ -17,7 +17,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      water: 0,
+      water: 1.5,
       heart: 120,
       temperature: -10,
       steps: 3000,
@@ -26,26 +26,48 @@ class App extends React.Component {
     this.onHeartChange = this.onHeartChange.bind(this);
     this.onStepsChange = this.onStepsChange.bind(this);
     this.onTemperatureChange = this.onTemperatureChange.bind(this);
+    this.calculateWater = this.calculateWater.bind(this);
   }
 
+  // Update du state Heart, Steps et Temperature en fonction de la valeur du curseur
   onHeartChange(e) {
     this.setState({ heart: e.target.value });
+    this.calculateWater();
   }
 
   onStepsChange(e) {
     this.setState({ steps: e.target.value });
+    this.calculateWater();
   }
 
   onTemperatureChange(e) {
     this.setState({ temperature: e.target.value });
+    this.calculateWater();
   }
 
+  // Calcule la quantité d'eau en fonction des states Heart, Steps, Temperature
+  calculateWater() {
+    this.setState({
+      water:
+        1.5 +
+        0.02 * (this.state.temperature - 20) +
+        0.00002 * (this.state.steps - 10000) +
+        0.0008 * (this.state.heart - 120),
+    });
+  }
+
+  // Affiche les box avec indications et curseurs
   render() {
     return (
       <div className="container-fluid">
         <div class="row">
           {/* Water */}
-          <Box icon="local_drink" color="#3A85FF" value={1.5} unit="L" />
+          <Box
+            icon="local_drink"
+            color="#3A85FF"
+            value={this.state.water}
+            unit="L"
+          />
           {/* Steps */}
           <Box
             icon="directions_walk"

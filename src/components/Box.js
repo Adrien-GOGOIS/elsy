@@ -1,5 +1,6 @@
 import React from "react";
 
+// Box avec indications et renvois des infos au parent App.js
 class Box extends React.Component {
   render() {
     const css = {
